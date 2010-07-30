@@ -1,0 +1,9 @@
+[team terrorist]
+geht zur Terroristengruppe
+is joining the Terrorist force
+rejoint les terroristes
+
+[team counterterrorist]
+geht zur Antiterror-Einheit
+is joining the Counter-Terrorist force
+rejoint les antiterroristes
