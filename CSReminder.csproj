@@ -12,10 +12,14 @@
     <AssemblyName>CSReminder</AssemblyName>
     <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
+    <AllowUnsafeBlocks>False</AllowUnsafeBlocks>
+    <NoStdLib>False</NoStdLib>
+    <TreatWarningsAsErrors>false</TreatWarningsAsErrors>
+    <RunPostBuildEvent>OnBuildSuccess</RunPostBuildEvent>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
-    <DebugType>full</DebugType>
+    <DebugType>Full</DebugType>
     <Optimize>false</Optimize>
     <OutputPath>bin\Debug\</OutputPath>
     <DefineConstants>DEBUG;TRACE</DefineConstants>
@@ -30,7 +34,19 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
+    <CheckForOverflowUnderflow>False</CheckForOverflowUnderflow>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Platform)' == 'AnyCPU' ">
+    <RegisterForComInterop>False</RegisterForComInterop>
+    <GenerateSerializationAssemblies>Auto</GenerateSerializationAssemblies>
+    <BaseAddress>4194304</BaseAddress>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+  </PropertyGroup>
   <ItemGroup>
+    <Reference Include="PluginInterface">
+      <HintPath>C:\Programme\EslWire\PluginInterface.dll</HintPath>
+    </Reference>
     <Reference Include="PluginInterface, Version=1.0.3841.22152, Culture=neutral, PublicKeyToken=b5b34d6486ab2502, processorArchitecture=x86">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\..\bin\x86\files\PluginInterface.dll</HintPath>
@@ -39,6 +55,7 @@
     <Reference Include="System.Core">
       <RequiredTargetFramework>3.5</RequiredTargetFramework>
     </Reference>
+    <Reference Include="System.Drawing" />
     <Reference Include="System.Drawing" />
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml.Linq">
@@ -93,11 +110,4 @@
   <Target Name="AfterBuild">
   </Target>
   -->
-  <PropertyGroup>
-    <PostBuildEvent>XCOPY /Y "$(TargetPath)" $(ProjectDir)..\..\..\bin\x86\files\plugins\wire
-XCOPY /Y "$(TargetPath)" $(ProjectDir)..\..\..\bin\AMD64\files\plugins\wire
-xcopy /y "$(ProjectDir)LanguageConfig.txt" $(ProjectDir)..\..\..\bin\x86\files\plugins\wire
-xcopy /y "$(ProjectDir)LanguageConfig.txt" $(ProjectDir)..\..\..\bin\AMD64\files\plugins\wire
-</PostBuildEvent>
-  </PropertyGroup>
 </Project>
